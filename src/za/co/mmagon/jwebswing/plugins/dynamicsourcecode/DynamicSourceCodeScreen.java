@@ -20,6 +20,7 @@ import java.util.HashMap;
 import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.html.ListItem;
 import za.co.mmagon.jwebswing.base.html.Option;
+import za.co.mmagon.jwebswing.base.html.Select;
 import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
 import za.co.mmagon.jwebswing.base.html.attributes.NoAttributes;
 import za.co.mmagon.jwebswing.base.html.attributes.OptionAttributes;
@@ -31,12 +32,9 @@ import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSSImpl;
 import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementPercentages;
 import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextAlignments;
 import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextCSS;
+import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 import za.co.mmagon.jwebswing.plugins.google.sourceprettify.JQSourceCodePrettify;
 import za.co.mmagon.jwebswing.plugins.google.sourceprettify.SourceCodePrettifyThemes;
-import za.co.mmagon.jwebswing.plugins.jqxwidgets.dropdownlist.JQXDropDownListSelectMenu;
-import za.co.mmagon.jwebswing.plugins.jqxwidgets.panel.JQXPanel;
-import za.co.mmagon.jwebswing.plugins.jqxwidgets.panel.JQXPanelFeature;
-import za.co.mmagon.jwebswing.plugins.jqxwidgets.panel.JQXPanelSizeModes;
 
 /**
  *
@@ -45,6 +43,9 @@ import za.co.mmagon.jwebswing.plugins.jqxwidgets.panel.JQXPanelSizeModes;
  *
  * @since 27 Apr 2015
  */
+@ComponentInformation(name = "Dynamic Source Code Screen",
+        description = "A screen for a source code viewer with buttons to change the source displayed",
+        url = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin", wikiUrl = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin/wiki")
 public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen>
         extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
 {
@@ -52,10 +53,8 @@ public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen>
     private static final long serialVersionUID = 1L;
     private final HashMap<String, Class> screensToGenerate = new HashMap<>();
     @TextCSS(TextAlign = TextAlignments.Center)
-    private final JQXPanel buttonPanel = new JQXPanel();
+    private final Div buttonPanel = new Div();
     private final JQSourceCodePrettify sourceDisplay = new JQSourceCodePrettify();
-
-    JQXPanelFeature feat = new JQXPanelFeature(sourceDisplay);
 
     public DynamicSourceCodeScreen()
     {
@@ -64,9 +63,7 @@ public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen>
         getCss().getDimensions().setHeight(MeasurementPercentages.hundredPercent);
         getCss().getDisplay().setOverflow(Overflows.Hidden);
         buttonPanel.setID("actualSource");
-        buttonPanel.getOptions().setHeight(60);
         buttonPanel.getCss().getDimensions().setHeight(60);
-        buttonPanel.getOptions().setWidth(MeasurementPercentages.hundredPercent);
         buttonPanel.getCss().getMargins().setMarginTop(new MeasurementCSSImpl(2));
         buttonPanel.addClass("sourceCodeButton");
 
@@ -76,11 +73,6 @@ public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen>
 
         sourceDisplay.getCss().getDimensions().setHeight(MeasurementPercentages.hundredPercent);
         sourceDisplay.getCss().getDisplay().setOverflow(Overflows.Scroll);
-        sourceDisplay.addFeature(feat);
-
-        feat.getOptions().setSizeMode(JQXPanelSizeModes.fixed);
-        feat.getOptions().setWidth(MeasurementPercentages.hundredPercent);
-        feat.getOptions().setHeight(MeasurementPercentages.ninetyThreePercent);
 
         za.co.mmagon.jwebswing.utilities.ComponentUtils.removeAllMargins(sourceDisplay);
 
@@ -88,11 +80,11 @@ public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen>
         add(sourceDisplay);
     }
 
-    private JQXDropDownListSelectMenu getThemeSelector()
+    private Select getThemeSelector()
     {
-        JQXDropDownListSelectMenu selectMenu = new JQXDropDownListSelectMenu();
+        Select selectMenu = new Select();
         selectMenu.setID("prettySelect");
-        selectMenu.getOptions().setWidth(160);
+        selectMenu.getCss().getDimensions().setWidth(160);
         SourceCodePrettifyThemes[] themes = SourceCodePrettifyThemes.values();
         for (SourceCodePrettifyThemes theme : themes)
         {

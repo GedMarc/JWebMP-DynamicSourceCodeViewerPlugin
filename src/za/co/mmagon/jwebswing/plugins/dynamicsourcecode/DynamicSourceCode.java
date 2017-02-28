@@ -17,6 +17,7 @@
 package za.co.mmagon.jwebswing.plugins.dynamicsourcecode;
 
 import java.util.HashMap;
+import java.util.Map;
 import za.co.mmagon.jwebswing.Component;
 import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
 import za.co.mmagon.jwebswing.plugins.google.sourceprettify.SourceCodePrettifyThemes;
@@ -34,8 +35,8 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
     private static final long serialVersionUID = 1L;
     private DynamicSourceCodeFeature feature;
 
-    private HashMap<Component, Class> sourceChanges;
-    private HashMap<Component, SourceCodePrettifyThemes> themes;
+    private Map<Component, Class> sourceChanges;
+    private Map<Component, SourceCodePrettifyThemes> themes;
 
     public DynamicSourceCode()
     {
@@ -82,7 +83,7 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
      *
      * @return
      */
-    public HashMap<Component, Class> getSourceChanges()
+    public Map<Component, Class> getSourceChanges()
     {
         if (sourceChanges == null)
         {
@@ -96,7 +97,7 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
      *
      * @param sourceChanges
      */
-    public void setSourceChanges(HashMap<Component, Class> sourceChanges)
+    public void setSourceChanges(Map<Component, Class> sourceChanges)
     {
         this.sourceChanges = sourceChanges;
     }
@@ -106,7 +107,7 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
      *
      * @return
      */
-    public HashMap<Component, SourceCodePrettifyThemes> getThemeChanges()
+    public Map<Component, SourceCodePrettifyThemes> getThemeChanges()
     {
         if (themes == null)
         {
@@ -120,7 +121,7 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
      *
      * @param themes
      */
-    public void setThemes(HashMap<Component, SourceCodePrettifyThemes> themes)
+    public void setThemes(Map<Component, SourceCodePrettifyThemes> themes)
     {
         this.themes = themes;
     }
