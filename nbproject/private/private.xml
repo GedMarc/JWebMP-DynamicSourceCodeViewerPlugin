@@ -3,5 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="JWebSwing"/>
+        <group name="JWebSwing Plugins">
+            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/DynamicSourceCodeViewerPlugin/jar-resources/META-INF/resources/dynamicSourceCodeFetcher/DynamicSourceCodeLoad.js</file>
+            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/DynamicSourceCodeViewerPlugin/src/za/co/mmagon/jwebswing/plugins/dynamicsourcecode/DynamicSourceCodePageConfigurator.java</file>
+        </group>
     </open-files>
 </project-private>
