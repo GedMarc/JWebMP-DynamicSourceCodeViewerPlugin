@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,7 +26,7 @@ import za.co.mmagon.jwebswing.plugins.PluginInformation;
  * @since 28 Feb 2017
  *
  */
-@PluginInformation(pluginName = "Dynamic Source Code Viewer", pluginUniqueName = "jw-source-code-viewer",
+@PluginInformation(pluginName = "Source Code View", pluginUniqueName = "jw-source-code-viewer",
                    pluginDescription = "A basic screen with buttons to load sources, a format drop down, and a source display screen. Completely themable with a switch",
                    pluginVersion = "1.0.0",
                    pluginDependancyUniqueIDs = "jquery,google-code-prettify",
