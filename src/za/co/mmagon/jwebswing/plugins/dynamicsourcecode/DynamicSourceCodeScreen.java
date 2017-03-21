@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -44,8 +44,8 @@ import za.co.mmagon.jwebswing.plugins.google.sourceprettify.SourceCodePrettifyTh
  * @since 27 Apr 2015
  */
 @ComponentInformation(name = "Dynamic Source Code Screen",
-        description = "A screen for a source code viewer with buttons to change the source displayed",
-        url = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin", wikiUrl = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin/wiki")
+                      description = "A screen for a source code viewer with buttons to change the source displayed",
+                      url = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin", wikiUrl = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin/wiki")
 public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen>
         extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
 {
