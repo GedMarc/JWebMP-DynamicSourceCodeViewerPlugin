@@ -16,7 +16,6 @@
  */
 package za.co.mmagon.jwebswing.plugins.dynamicsourcecode;
 
-import java.util.HashMap;
 import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.html.ListItem;
 import za.co.mmagon.jwebswing.base.html.Option;
@@ -36,6 +35,8 @@ import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 import za.co.mmagon.jwebswing.plugins.google.sourceprettify.JQSourceCodePrettify;
 import za.co.mmagon.jwebswing.plugins.google.sourceprettify.SourceCodePrettifyThemes;
 
+import java.util.HashMap;
+
 /**
  *
  * @author GedMarc
@@ -44,9 +45,9 @@ import za.co.mmagon.jwebswing.plugins.google.sourceprettify.SourceCodePrettifyTh
  * @since 27 Apr 2015
  */
 @ComponentInformation(name = "Dynamic Source Code Screen",
-                      description = "A screen for a source code viewer with buttons to change the source displayed",
-                      url = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin", wikiUrl = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin/wiki")
-public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen>
+		description = "A screen for a source code viewer with buttons to change the source displayed",
+		url = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin", wikiUrl = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin/wiki")
+public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen<J>>
         extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
 {
 
