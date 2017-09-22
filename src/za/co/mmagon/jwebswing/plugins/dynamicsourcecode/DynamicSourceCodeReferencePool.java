@@ -28,42 +28,42 @@ import za.co.mmagon.jwebswing.base.servlets.interfaces.ReferencePool;
  */
 public enum DynamicSourceCodeReferencePool implements ReferencePool
 {
-    DynamicSourceCodeJavascript(new JavascriptReference("JWDynamicSourceCode", 1.0, "dynamicSourceCodeFetcher/DynamicSourceCodeLoad.js", "dynamicSourceCodeFetcher/DynamicSourceCodeLoad.js"),null)
-    ;
-    private DynamicSourceCodeReferencePool()
-    {
-    }
-
-    private JavascriptReference javaScriptReference;
-    private CSSReference cssReference;
-
-    private DynamicSourceCodeReferencePool(JavascriptReference javaScriptReference, CSSReference cssReference)
-    {
-        this.javaScriptReference = javaScriptReference;
-        this.cssReference = cssReference;
-    }
-
-    @Override
-    public JavascriptReference getJavaScriptReference()
-    {
-        return javaScriptReference;
-    }
-
-    @Override
-    public void setJavaScriptReference(JavascriptReference javaScriptReference)
-    {
-        this.javaScriptReference = javaScriptReference;
-    }
-
-    @Override
-    public CSSReference getCssReference()
-    {
-        return cssReference;
-    }
-
-    @Override
-    public void setCssReference(CSSReference cssReference)
-    {
-        this.cssReference = cssReference;
-    }
+	DynamicSourceCodeJavascript(new JavascriptReference("JWDynamicSourceCode", 1.0, "dynamicSourceCodeFetcher/DynamicSourceCodeLoad.js", "dynamicSourceCodeFetcher/DynamicSourceCodeLoad.js"), null);
+	
+	private JavascriptReference javaScriptReference;
+	private CSSReference cssReference;
+	
+	DynamicSourceCodeReferencePool()
+	{
+	}
+	
+	DynamicSourceCodeReferencePool(JavascriptReference javaScriptReference, CSSReference cssReference)
+	{
+		this.javaScriptReference = javaScriptReference;
+		this.cssReference = cssReference;
+	}
+	
+	@Override
+	public JavascriptReference getJavaScriptReference()
+	{
+		return javaScriptReference;
+	}
+	
+	@Override
+	public void setJavaScriptReference(JavascriptReference javaScriptReference)
+	{
+		this.javaScriptReference = javaScriptReference;
+	}
+	
+	@Override
+	public CSSReference getCssReference()
+	{
+		return cssReference;
+	}
+	
+	@Override
+	public void setCssReference(CSSReference cssReference)
+	{
+		this.cssReference = cssReference;
+	}
 }

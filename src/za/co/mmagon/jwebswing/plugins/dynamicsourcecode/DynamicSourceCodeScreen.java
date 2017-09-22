@@ -38,71 +38,70 @@ import za.co.mmagon.jwebswing.plugins.google.sourceprettify.SourceCodePrettifyTh
 import java.util.HashMap;
 
 /**
- *
- * @author GedMarc
  * @param <J>
  *
+ * @author GedMarc
  * @since 27 Apr 2015
  */
 @ComponentInformation(name = "Dynamic Source Code Screen",
 		description = "A screen for a source code viewer with buttons to change the source displayed",
 		url = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin", wikiUrl = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin/wiki")
 public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen<J>>
-        extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
 {
-
-    private static final long serialVersionUID = 1L;
-    private final HashMap<String, Class> screensToGenerate = new HashMap<>();
-    @TextCSS(TextAlign = TextAlignments.Center)
-    private final Div buttonPanel = new Div();
-    private final JQSourceCodePrettify sourceDisplay = new JQSourceCodePrettify();
-
-    public DynamicSourceCodeScreen()
-    {
-        setID("sourceScreen");
-        getCss().getDimensions().setWidth(MeasurementPercentages.hundredPercent);
-        getCss().getDimensions().setHeight(MeasurementPercentages.hundredPercent);
-        getCss().getDisplay().setOverflow(Overflows.Hidden);
-        buttonPanel.setID("actualSource");
-        buttonPanel.getCss().getDimensions().setHeight(60);
-        buttonPanel.getCss().getMargins().setMarginTop(new MeasurementCSSImpl(2));
-        buttonPanel.addClass("sourceCodeButton");
-
-        sourceDisplay.setID("sourceCode");
-        sourceDisplay.setSourceCodePrettifyTheme(SourceCodePrettifyThemes.Sons_Of_Obsidian);
-        addFeature(new DynamicSourceCodeFeature(this));
-
-        sourceDisplay.getCss().getDimensions().setHeight(MeasurementPercentages.hundredPercent);
-        sourceDisplay.getCss().getDisplay().setOverflow(Overflows.Scroll);
-
-        za.co.mmagon.jwebswing.utilities.ComponentUtils.removeAllMargins(sourceDisplay);
-
-        add(buttonPanel);
-        add(sourceDisplay);
-    }
-
-    private Select getThemeSelector()
-    {
-        Select selectMenu = new Select();
-        selectMenu.setID("prettySelect");
-        selectMenu.getCss().getDimensions().setWidth(160);
-        SourceCodePrettifyThemes[] themes = SourceCodePrettifyThemes.values();
-        for (SourceCodePrettifyThemes theme : themes)
-        {
-
-            Option opt = new Option(theme.name().replace('_', ' '));
-            opt.addAttribute(OptionAttributes.Value, theme.getCssReference());
-            selectMenu.add(opt);
-
-            ListItem li = new ListItem(theme.name().replace('_', ' '));
-            li.addAttribute(GlobalAttributes.Value, theme.getCssReference());
-        };
-
-        return selectMenu;
-    }
-
-    public void addButton(String name, Class comp)
-    {
-        screensToGenerate.put(name, comp);
-    }
+	
+	private static final long serialVersionUID = 1L;
+	private final HashMap<String, Class> screensToGenerate = new HashMap<>();
+	@TextCSS(TextAlign = TextAlignments.Center)
+	private final Div buttonPanel = new Div();
+	private final JQSourceCodePrettify sourceDisplay = new JQSourceCodePrettify();
+	
+	public DynamicSourceCodeScreen()
+	{
+		setID("sourceScreen");
+		getCss().getDimensions().setWidth(MeasurementPercentages.hundredPercent);
+		getCss().getDimensions().setHeight(MeasurementPercentages.hundredPercent);
+		getCss().getDisplay().setOverflow(Overflows.Hidden);
+		buttonPanel.setID("actualSource");
+		buttonPanel.getCss().getDimensions().setHeight(60);
+		buttonPanel.getCss().getMargins().setMarginTop(new MeasurementCSSImpl(2));
+		buttonPanel.addClass("sourceCodeButton");
+		
+		sourceDisplay.setID("sourceCode");
+		sourceDisplay.setSourceCodePrettifyTheme(SourceCodePrettifyThemes.Sons_Of_Obsidian);
+		addFeature(new DynamicSourceCodeFeature(this));
+		
+		sourceDisplay.getCss().getDimensions().setHeight(MeasurementPercentages.hundredPercent);
+		sourceDisplay.getCss().getDisplay().setOverflow(Overflows.Scroll);
+		
+		za.co.mmagon.jwebswing.utilities.ComponentUtils.removeAllMargins(sourceDisplay);
+		
+		add(buttonPanel);
+		add(sourceDisplay);
+	}
+	
+	private Select getThemeSelector()
+	{
+		Select selectMenu = new Select();
+		selectMenu.setID("prettySelect");
+		selectMenu.getCss().getDimensions().setWidth(160);
+		SourceCodePrettifyThemes[] themes = SourceCodePrettifyThemes.values();
+		for (SourceCodePrettifyThemes theme : themes)
+		{
+			
+			Option opt = new Option(theme.name().replace('_', ' '));
+			opt.addAttribute(OptionAttributes.Value, theme.getCssReference());
+			selectMenu.add(opt);
+			
+			ListItem li = new ListItem(theme.name().replace('_', ' '));
+			li.addAttribute(GlobalAttributes.Value, theme.getCssReference());
+		}
+		
+		return selectMenu;
+	}
+	
+	public void addButton(String name, Class comp)
+	{
+		screensToGenerate.put(name, comp);
+	}
 }

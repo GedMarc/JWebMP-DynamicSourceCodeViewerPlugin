@@ -11,8 +11,7 @@ function updateSourceCodeTheme(newTheme) {
  * @param {type} opts The options to apply
  * @returns {$}
  */
-$.fn.dynamicSourceCode = function (opts)
-{
+$.fn.dynamicSourceCode = function (opts) {
     opts = $.extend({}, $.fn.dynamicSourceCode.defaults, opts);
     $(this).data('opts', opts);
     updateSourceCodeTheme(opts.defaultTheme);
@@ -21,13 +20,12 @@ $.fn.dynamicSourceCode = function (opts)
 /**
  * Registers a new event to the element id that changes the source code of this compoent to the value of the element
  * Always run from the same component that you did dynamicSourceCode on
- * 
+ *
  * @param {type} elementId The element ID to change
  * @param {type} onEvent The event to do it on
  * @returns {undefined}
  */
-$.fn.dynamicSourceCodeAddChanger = function (elementId, onEvent)
-{
+$.fn.dynamicSourceCodeAddChanger = function (elementId, onEvent) {
     var opts = $(this).data('opts');
     var preDiv = $(this);
     var grr = $('#' + elementId);
@@ -47,11 +45,10 @@ $.fn.dynamicSourceCodeAddChanger = function (elementId, onEvent)
  * Removes and adds a new CSS Link for the given theme
  * @param {type} elementId
  */
-$.fn.dynamicSourceCodeAddThemeChanger = function (elementId)
-{
+$.fn.dynamicSourceCodeAddThemeChanger = function (elementId) {
     var opts = $(this).data('opts');
     var ele = $('#' + elementId);
-    
+
     ele.on('click', function () {
         var themeToApply = $(this).attr("value");
         updateSourceCodeTheme(themeToApply);
@@ -62,9 +59,9 @@ $.fn.dynamicSourceCodeAddThemeChanger = function (elementId)
  * All the defaults
  */
 $.fn.dynamicSourceCode.defaults =
-        {
-            srcUrl: 'java/',
-            prettyPrintClass: "prettyprinted",
-            defaultTheme: "bower_components/google-code-prettify/bin/prettify.min.css",
-            fileExtension: ".java"
-        };
+    {
+        srcUrl: 'java/',
+        prettyPrintClass: "prettyprinted",
+        defaultTheme: "bower_components/google-code-prettify/bin/prettify.min.css",
+        fileExtension: ".java"
+    };

@@ -16,120 +16,122 @@
  */
 package za.co.mmagon.jwebswing.plugins.dynamicsourcecode;
 
-import java.util.HashMap;
-import java.util.Map;
 import za.co.mmagon.jwebswing.Component;
 import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
 import za.co.mmagon.jwebswing.plugins.google.sourceprettify.SourceCodePrettifyThemes;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Custom code swapper for JQ Source Code Pretty
  * <p>
+ *
  * @author Marc Magon
- * @since 29 Aug 2015
  * @version 1.0
+ * @since 29 Aug 2015
  */
 public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sourceprettify.JQSourceCodePrettify
 {
-
-    private static final long serialVersionUID = 1L;
-    private DynamicSourceCodeFeature feature;
-
-    private Map<Component, Class> sourceChanges;
-    private Map<Component, SourceCodePrettifyThemes> themes;
-
-    public DynamicSourceCode()
-    {
-        addFeature(getFeature());
-    }
-
-    public final DynamicSourceCodeFeature getFeature()
-    {
-        if (feature == null)
-        {
-            feature = new DynamicSourceCodeFeature(this);
-        }
-        return feature;
-    }
-
-    /**
-     * Registers a component as a source code changer
-     *
-     * @param component
-     * @param sourceClass
-     */
-    public void addSourceChanger(Component component, Class sourceClass)
-    {
-        component.addAttribute(GlobalAttributes.Value, sourceClass.getCanonicalName().replace(".", "/"));
-        component.setID(sourceClass.getSimpleName() + "_source");
-        getSourceChanges().put(component, sourceClass);
-    }
-
-    /**
-     * Registers a component as a theme changer
-     *
-     * @param component
-     * @param theme
-     */
-    public void addThemeChanger(Component component, SourceCodePrettifyThemes theme)
-    {
-        component.addAttribute(GlobalAttributes.Value, theme.getCssReference());
-        component.setID(theme.name() + "_themeChanger");
-        getThemeChanges().put(component, theme);
-    }
-
-    /**
-     * Returns all the source code changes
-     *
-     * @return
-     */
-    public Map<Component, Class> getSourceChanges()
-    {
-        if (sourceChanges == null)
-        {
-            sourceChanges = new HashMap<>();
-        }
-        return sourceChanges;
-    }
-
-    /**
-     * Sets the source code changes
-     *
-     * @param sourceChanges
-     */
-    public void setSourceChanges(Map<Component, Class> sourceChanges)
-    {
-        this.sourceChanges = sourceChanges;
-    }
-
-    /**
-     * Gets the theme changes
-     *
-     * @return
-     */
-    public Map<Component, SourceCodePrettifyThemes> getThemeChanges()
-    {
-        if (themes == null)
-        {
-            themes = new HashMap<>();
-        }
-        return themes;
-    }
-
-    /**
-     * Sets the theme changes
-     *
-     * @param themes
-     */
-    public void setThemes(Map<Component, SourceCodePrettifyThemes> themes)
-    {
-        this.themes = themes;
-    }
-
-    @Override
-    public DynamicSourceCodeOptions getOptions()
-    {
-        return getFeature().getOptions();
-    }
+	
+	private static final long serialVersionUID = 1L;
+	private DynamicSourceCodeFeature feature;
+	
+	private Map<Component, Class> sourceChanges;
+	private Map<Component, SourceCodePrettifyThemes> themes;
+	
+	public DynamicSourceCode()
+	{
+		addFeature(getFeature());
+	}
+	
+	public final DynamicSourceCodeFeature getFeature()
+	{
+		if (feature == null)
+		{
+			feature = new DynamicSourceCodeFeature(this);
+		}
+		return feature;
+	}
+	
+	/**
+	 * Registers a component as a source code changer
+	 *
+	 * @param component
+	 * @param sourceClass
+	 */
+	public void addSourceChanger(Component component, Class sourceClass)
+	{
+		component.addAttribute(GlobalAttributes.Value, sourceClass.getCanonicalName().replace(".", "/"));
+		component.setID(sourceClass.getSimpleName() + "_source");
+		getSourceChanges().put(component, sourceClass);
+	}
+	
+	/**
+	 * Registers a component as a theme changer
+	 *
+	 * @param component
+	 * @param theme
+	 */
+	public void addThemeChanger(Component component, SourceCodePrettifyThemes theme)
+	{
+		component.addAttribute(GlobalAttributes.Value, theme.getCssReference());
+		component.setID(theme.name() + "_themeChanger");
+		getThemeChanges().put(component, theme);
+	}
+	
+	/**
+	 * Returns all the source code changes
+	 *
+	 * @return
+	 */
+	public Map<Component, Class> getSourceChanges()
+	{
+		if (sourceChanges == null)
+		{
+			sourceChanges = new HashMap<>();
+		}
+		return sourceChanges;
+	}
+	
+	/**
+	 * Sets the source code changes
+	 *
+	 * @param sourceChanges
+	 */
+	public void setSourceChanges(Map<Component, Class> sourceChanges)
+	{
+		this.sourceChanges = sourceChanges;
+	}
+	
+	/**
+	 * Gets the theme changes
+	 *
+	 * @return
+	 */
+	public Map<Component, SourceCodePrettifyThemes> getThemeChanges()
+	{
+		if (themes == null)
+		{
+			themes = new HashMap<>();
+		}
+		return themes;
+	}
+	
+	/**
+	 * Sets the theme changes
+	 *
+	 * @param themes
+	 */
+	public void setThemes(Map<Component, SourceCodePrettifyThemes> themes)
+	{
+		this.themes = themes;
+	}
+	
+	@Override
+	public DynamicSourceCodeOptions getOptions()
+	{
+		return getFeature().getOptions();
+	}
 
 }

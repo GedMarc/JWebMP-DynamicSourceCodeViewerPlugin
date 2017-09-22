@@ -21,95 +21,106 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 /**
  * Options for the dynamic source code guy
  * <p>
+ *
  * @author GedMarc
- * @since Nov 11, 2016
  * @version 1.0
  * <p>
  * <p>
+ * @since Nov 11, 2016
  */
 public class DynamicSourceCodeOptions extends JavaScriptPart
 {
+	
+	private static final long serialVersionUID = 1L;
+	private String srcUrl;
+	private String defaultTheme;
+	private String prettyPrintClass;
+	private String fileExtension;
+	
+	public DynamicSourceCodeOptions()
+	{
+	
+	}
+	
+	/**
+	 * Sets the URL that is the base of the class hierarchy
+	 *
+	 * @return
+	 */
+	public String getSrcUrl()
+	{
+		return srcUrl;
+	}
+	
+	/**
+	 * Sets the URL that is the base of the class hierarchy
+	 *
+	 * @param srcUrl
+	 */
+	public void setSrcUrl(String srcUrl)
+	{
+		this.srcUrl = srcUrl;
+	}
+	
+	/**
+	 * Gets the default theme applied
+	 *
+	 * @return
+	 */
+	public String getDefaultTheme()
+	{
+		return defaultTheme;
+	}
+	
+	/**
+	 * Sets the default theme applied
+	 *
+	 * @param defaultTheme
+	 */
+	public void setDefaultTheme(String defaultTheme)
+	{
+		this.defaultTheme = defaultTheme;
+	}
+	
+	/**
+	 * Gets the pretty print class
+	 *
+	 * @return
+	 */
+	public String getPrettyPrintClass()
+	{
+		return prettyPrintClass;
+	}
+	
+	/**
+	 * Sets the pretty print class
+	 *
+	 * @param prettyPrintClass
+	 */
+	public void setPrettyPrintClass(String prettyPrintClass)
+	{
+		this.prettyPrintClass = prettyPrintClass;
+	}
+	
+	/**
+	 * The file extension
+	 *
+	 * @return
+	 */
+	public String getFileExtension()
+	{
+		return fileExtension;
+	}
+	
+	/**
+	 * The source file extension
+	 *
+	 * @param fileExtension
+	 */
+	public void setFileExtension(String fileExtension)
+	{
+		this.fileExtension = fileExtension;
+	}
 
-    private static final long serialVersionUID = 1L;
-    private String srcUrl;
-    private String defaultTheme;
-    private String prettyPrintClass;
-    private String fileExtension;
 
-    public DynamicSourceCodeOptions()
-    {
-
-    }
-
-    /**
-     * Sets the URL that is the base of the class hierarchy
-     * @return 
-     */
-    public String getSrcUrl()
-    {
-        return srcUrl;
-    }
-
-    /**
-     * Sets the URL that is the base of the class hierarchy
-     * @param srcUrl 
-     */
-    public void setSrcUrl(String srcUrl)
-    {
-        this.srcUrl = srcUrl;
-    }
-    /**
-     * Gets the default theme applied
-     * @return 
-     */
-    public String getDefaultTheme()
-    {
-        return defaultTheme;
-    }
-
-    /**
-     * Sets the default theme applied
-     * @param defaultTheme 
-     */
-    public void setDefaultTheme(String defaultTheme)
-    {
-        this.defaultTheme = defaultTheme;
-    }
-    
-    /**
-     * Gets the pretty print class
-     * @return 
-     */
-    public String getPrettyPrintClass()
-    {
-        return prettyPrintClass;
-    }
-
-    /**
-     * Sets the pretty print class
-     * @param prettyPrintClass 
-     */
-    public void setPrettyPrintClass(String prettyPrintClass)
-    {
-        this.prettyPrintClass = prettyPrintClass;
-    }    
-
-    /**
-     * The file extension
-     * @return 
-     */
-    public String getFileExtension()
-    {
-        return fileExtension;
-    }
-    /**
-     * The source file extension
-     * @param fileExtension 
-     */
-    public void setFileExtension(String fileExtension)
-    {
-        this.fileExtension = fileExtension;
-    }
-    
-    
 }
