@@ -24,24 +24,39 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
  *
  * @author GedMarc
  * @version 1.0
- * <p>
- * <p>
+ * 		<p>
+ * 		<p>
  * @since Nov 11, 2016
  */
-public class DynamicSourceCodeOptions extends JavaScriptPart
+public class DynamicSourceCodeOptions<J extends DynamicSourceCodeOptions<J>> extends JavaScriptPart<J>
 {
-	
+
 	private static final long serialVersionUID = 1L;
+	/**
+	 * The source url for the code
+	 */
 	private String srcUrl;
+	/**
+	 * The default theme applied
+	 */
 	private String defaultTheme;
+	/**
+	 * The class name for pretty print
+	 */
 	private String prettyPrintClass;
+	/**
+	 * The file extension
+	 */
 	private String fileExtension;
-	
+
+	/**
+	 * The list of options
+	 */
 	public DynamicSourceCodeOptions()
 	{
-	
+		//Nothing Needed
 	}
-	
+
 	/**
 	 * Sets the URL that is the base of the class hierarchy
 	 *
@@ -51,7 +66,7 @@ public class DynamicSourceCodeOptions extends JavaScriptPart
 	{
 		return srcUrl;
 	}
-	
+
 	/**
 	 * Sets the URL that is the base of the class hierarchy
 	 *
@@ -61,7 +76,7 @@ public class DynamicSourceCodeOptions extends JavaScriptPart
 	{
 		this.srcUrl = srcUrl;
 	}
-	
+
 	/**
 	 * Gets the default theme applied
 	 *
@@ -71,7 +86,7 @@ public class DynamicSourceCodeOptions extends JavaScriptPart
 	{
 		return defaultTheme;
 	}
-	
+
 	/**
 	 * Sets the default theme applied
 	 *
@@ -81,7 +96,7 @@ public class DynamicSourceCodeOptions extends JavaScriptPart
 	{
 		this.defaultTheme = defaultTheme;
 	}
-	
+
 	/**
 	 * Gets the pretty print class
 	 *
@@ -91,7 +106,7 @@ public class DynamicSourceCodeOptions extends JavaScriptPart
 	{
 		return prettyPrintClass;
 	}
-	
+
 	/**
 	 * Sets the pretty print class
 	 *
@@ -101,7 +116,7 @@ public class DynamicSourceCodeOptions extends JavaScriptPart
 	{
 		this.prettyPrintClass = prettyPrintClass;
 	}
-	
+
 	/**
 	 * The file extension
 	 *
@@ -111,7 +126,7 @@ public class DynamicSourceCodeOptions extends JavaScriptPart
 	{
 		return fileExtension;
 	}
-	
+
 	/**
 	 * The source file extension
 	 *

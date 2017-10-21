@@ -19,7 +19,6 @@ package za.co.mmagon.jwebswing.plugins.dynamicsourcecode;
 import za.co.mmagon.jwebswing.Component;
 import za.co.mmagon.jwebswing.Feature;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
-import za.co.mmagon.jwebswing.plugins.google.sourceprettify.SourceCodePrettifyThemes;
 import za.co.mmagon.jwebswing.plugins.jquery.JQueryPageConfigurator;
 
 /**
@@ -29,27 +28,29 @@ import za.co.mmagon.jwebswing.plugins.jquery.JQueryPageConfigurator;
  * @version 1.0
  * @since 2013/01/16
  */
-public class DynamicSourceCodeFeature extends Feature<DynamicSourceCodeOptions, DynamicSourceCodeFeature>
+public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>> extends Feature<DynamicSourceCodeOptions, J>
 		implements GlobalFeatures
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * The list of options for the viewer
+	 */
 	private DynamicSourceCodeOptions options;
-	
+
 	/**
 	 * Constructs a new Feature for the Dynamic Source Code Component.
 	 * <p>
 	 *
 	 * @param forComponent
 	 */
-	public DynamicSourceCodeFeature(Component forComponent)
+	public DynamicSourceCodeFeature(DynamicSourceCode forComponent)
 	{
 		super("JWDynamicSourceCode");
 		setComponent(forComponent);
 		getJavascriptReferences().add(DynamicSourceCodeReferencePool.DynamicSourceCodeJavascript.getJavaScriptReference());
 	}
-	
+
 	/**
 	 * Returns all the source code options options
 	 * <p>
@@ -65,7 +66,7 @@ public class DynamicSourceCodeFeature extends Feature<DynamicSourceCodeOptions, 
 		}
 		return options;
 	}
-	
+
 	@Override
 	public void preConfigure()
 	{
@@ -75,34 +76,51 @@ public class DynamicSourceCodeFeature extends Feature<DynamicSourceCodeOptions, 
 		}
 		super.preConfigure();
 	}
-	
+
 	@Override
 	public void assignFunctionsToComponent()
 	{
 		DynamicSourceCode source = (DynamicSourceCode) getComponent();
-		//System.out.println("Feature Assign - " + isInitialized() + " - " + source.isInitialized());
 		addQuery("$('" + source.getID(true) + "').dynamicSourceCode(" + getOptions().toString() + ");" + getNewLine());
-		
-		source.getSourceChanges().entrySet().stream().map((entry) ->
-		                                                  {
-			                                                  Component key = entry.getKey();
-			                                                  Class value = entry.getValue();
-			
-			                                                  return key;
-		                                                  }).forEachOrdered((key) ->
-		                                                                    {
-			                                                                    addQuery("$('" + source.getID(true) + "').dynamicSourceCodeAddChanger('" + key.getID() + "','click');" + getNewLine());
-		                                                                    });
-		
-		source.getThemeChanges().entrySet().stream().map((entry) ->
-		                                                 {
-			                                                 Component key = entry.getKey();
-			                                                 SourceCodePrettifyThemes value = entry.getValue();
-			
-			                                                 return key;
-		                                                 }).forEachOrdered((key) ->
-		                                                                   {
-			                                                                   addQuery("$('" + source.getID(true) + "').dynamicSourceCodeAddThemeChanger('" + key.getID() + "');" + getNewLine());
-		                                                                   });
+
+		source.getSourceChanges().forEach((key, value) ->
+		                                  {
+			                                  addQuery("$('" + source.getID(true) + "').dynamicSourceCodeAddChanger('" + key.getID() + "','click');" + getNewLine());
+		                                  });
+
+		source.getThemeChanges().forEach((key, value) ->
+		                                 {
+			                                 addQuery("$('" + source.getID(true) + "').dynamicSourceCodeAddThemeChanger('" + key.getID() + "');" + getNewLine());
+		                                 });
+
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof DynamicSourceCodeFeature))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		DynamicSourceCodeFeature<?> that = (DynamicSourceCodeFeature<?>) o;
+
+		return getOptions() != null ? getOptions().equals(that.getOptions()) : that.getOptions() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getOptions() != null ? getOptions().hashCode() : 0);
+		return result;
 	}
 }

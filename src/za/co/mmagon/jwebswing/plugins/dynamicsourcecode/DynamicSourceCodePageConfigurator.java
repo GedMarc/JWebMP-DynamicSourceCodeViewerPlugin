@@ -38,14 +38,18 @@ import za.co.mmagon.jwebswing.plugins.PluginInformation;
 		pluginIconImageUrl = "dynamicSourceCodeFetcher/dynamicviewerlogo.png",
 		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/DynamicSourceCodeViewerPlugin.jar/download",
 		pluginCommercial = false)
+@SuppressWarnings("unused")
 public class DynamicSourceCodePageConfigurator extends PageConfigurator
 {
 	
 	private static final long serialVersionUID = 1L;
-	
+
+	/**
+	 * The source page configurator
+	 */
 	public DynamicSourceCodePageConfigurator()
 	{
-	
+		//Nothing needed
 	}
 	
 	@Override

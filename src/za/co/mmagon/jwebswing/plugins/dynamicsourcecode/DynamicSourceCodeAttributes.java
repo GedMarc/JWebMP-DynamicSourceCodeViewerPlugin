@@ -30,12 +30,7 @@ public enum DynamicSourceCodeAttributes implements AttributeDefinitions
 	DynamicSourceCodeAttributes()
 	{
 	}
-	
-	DynamicSourceCodeAttributes(boolean isKeyword)
-	{
-		this.isKeyword = isKeyword;
-	}
-	
+
 	@Override
 	public boolean isKeyword()
 	{

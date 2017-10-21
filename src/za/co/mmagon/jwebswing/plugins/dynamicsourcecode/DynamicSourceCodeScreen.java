@@ -17,12 +17,7 @@
 package za.co.mmagon.jwebswing.plugins.dynamicsourcecode;
 
 import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.base.html.ListItem;
-import za.co.mmagon.jwebswing.base.html.Option;
-import za.co.mmagon.jwebswing.base.html.Select;
-import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
 import za.co.mmagon.jwebswing.base.html.attributes.NoAttributes;
-import za.co.mmagon.jwebswing.base.html.attributes.OptionAttributes;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
@@ -36,6 +31,7 @@ import za.co.mmagon.jwebswing.plugins.google.sourceprettify.JQSourceCodePrettify
 import za.co.mmagon.jwebswing.plugins.google.sourceprettify.SourceCodePrettifyThemes;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @param <J>
@@ -51,11 +47,14 @@ public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen<J>>
 {
 	
 	private static final long serialVersionUID = 1L;
-	private final HashMap<String, Class> screensToGenerate = new HashMap<>();
+	private final Map<String, Class> screensToGenerate = new HashMap<>();
 	@TextCSS(TextAlign = TextAlignments.Center)
 	private final Div buttonPanel = new Div();
 	private final JQSourceCodePrettify sourceDisplay = new JQSourceCodePrettify();
-	
+
+	/**
+	 * The source code sreen
+	 */
 	public DynamicSourceCodeScreen()
 	{
 		setID("sourceScreen");
@@ -79,29 +78,53 @@ public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen<J>>
 		add(buttonPanel);
 		add(sourceDisplay);
 	}
-	
-	private Select getThemeSelector()
-	{
-		Select selectMenu = new Select();
-		selectMenu.setID("prettySelect");
-		selectMenu.getCss().getDimensions().setWidth(160);
-		SourceCodePrettifyThemes[] themes = SourceCodePrettifyThemes.values();
-		for (SourceCodePrettifyThemes theme : themes)
-		{
-			
-			Option opt = new Option(theme.name().replace('_', ' '));
-			opt.addAttribute(OptionAttributes.Value, theme.getCssReference());
-			selectMenu.add(opt);
-			
-			ListItem li = new ListItem(theme.name().replace('_', ' '));
-			li.addAttribute(GlobalAttributes.Value, theme.getCssReference());
-		}
-		
-		return selectMenu;
-	}
-	
+
+	/**
+	 * Adds an open source code display button
+	 * @param name
+	 * @param comp
+	 */
 	public void addButton(String name, Class comp)
 	{
 		screensToGenerate.put(name, comp);
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof DynamicSourceCodeScreen))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		DynamicSourceCodeScreen<?> that = (DynamicSourceCodeScreen<?>) o;
+
+		if (screensToGenerate != null ? !screensToGenerate.equals(that.screensToGenerate) : that.screensToGenerate != null)
+		{
+			return false;
+		}
+		if (buttonPanel != null ? !buttonPanel.equals(that.buttonPanel) : that.buttonPanel != null)
+		{
+			return false;
+		}
+		return sourceDisplay != null ? sourceDisplay.equals(that.sourceDisplay) : that.sourceDisplay == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (screensToGenerate != null ? screensToGenerate.hashCode() : 0);
+		result = 31 * result + (buttonPanel != null ? buttonPanel.hashCode() : 0);
+		result = 31 * result + (sourceDisplay != null ? sourceDisplay.hashCode() : 0);
+		return result;
 	}
 }

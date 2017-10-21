@@ -33,18 +33,18 @@ import java.util.Map;
  */
 public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sourceprettify.JQSourceCodePrettify
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	private DynamicSourceCodeFeature feature;
-	
+
 	private Map<Component, Class> sourceChanges;
 	private Map<Component, SourceCodePrettifyThemes> themes;
-	
+
 	public DynamicSourceCode()
 	{
 		addFeature(getFeature());
 	}
-	
+
 	public final DynamicSourceCodeFeature getFeature()
 	{
 		if (feature == null)
@@ -53,7 +53,7 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
 		}
 		return feature;
 	}
-	
+
 	/**
 	 * Registers a component as a source code changer
 	 *
@@ -66,7 +66,7 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
 		component.setID(sourceClass.getSimpleName() + "_source");
 		getSourceChanges().put(component, sourceClass);
 	}
-	
+
 	/**
 	 * Registers a component as a theme changer
 	 *
@@ -79,7 +79,7 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
 		component.setID(theme.name() + "_themeChanger");
 		getThemeChanges().put(component, theme);
 	}
-	
+
 	/**
 	 * Returns all the source code changes
 	 *
@@ -93,7 +93,7 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
 		}
 		return sourceChanges;
 	}
-	
+
 	/**
 	 * Sets the source code changes
 	 *
@@ -103,7 +103,7 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
 	{
 		this.sourceChanges = sourceChanges;
 	}
-	
+
 	/**
 	 * Gets the theme changes
 	 *
@@ -117,7 +117,7 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
 		}
 		return themes;
 	}
-	
+
 	/**
 	 * Sets the theme changes
 	 *
@@ -127,11 +127,49 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
 	{
 		this.themes = themes;
 	}
-	
+
 	@Override
 	public DynamicSourceCodeOptions getOptions()
 	{
 		return getFeature().getOptions();
 	}
 
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof DynamicSourceCode))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		DynamicSourceCode that = (DynamicSourceCode) o;
+
+		if (getFeature() != null ? !getFeature().equals(that.getFeature()) : that.getFeature() != null)
+		{
+			return false;
+		}
+		if (getSourceChanges() != null ? !getSourceChanges().equals(that.getSourceChanges()) : that.getSourceChanges() != null)
+		{
+			return false;
+		}
+		return getThemes() != null ? getThemes().equals(that.getThemes()) : that.getThemes() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getFeature() != null ? getFeature().hashCode() : 0);
+		result = 31 * result + (getSourceChanges() != null ? getSourceChanges().hashCode() : 0);
+		result = 31 * result + (getThemes() != null ? getThemes().hashCode() : 0);
+		return result;
+	}
 }
