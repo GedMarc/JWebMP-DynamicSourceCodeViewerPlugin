@@ -152,24 +152,24 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
 
 		DynamicSourceCode that = (DynamicSourceCode) o;
 
-		if (getFeature() != null ? !getFeature().equals(that.getFeature()) : that.getFeature() != null)
+		if (!getFeature().equals(that.getFeature()))
 		{
 			return false;
 		}
-		if (getSourceChanges() != null ? !getSourceChanges().equals(that.getSourceChanges()) : that.getSourceChanges() != null)
+		if (!getSourceChanges().equals(that.getSourceChanges()))
 		{
 			return false;
 		}
-		return getThemes() != null ? getThemes().equals(that.getThemes()) : that.getThemes() == null;
+		return getThemes().equals(that.getThemes());
 	}
 
 	@Override
 	public int hashCode()
 	{
 		int result = super.hashCode();
-		result = 31 * result + (getFeature() != null ? getFeature().hashCode() : 0);
-		result = 31 * result + (getSourceChanges() != null ? getSourceChanges().hashCode() : 0);
-		result = 31 * result + (getThemes() != null ? getThemes().hashCode() : 0);
+		result = 31 * result + getFeature().hashCode();
+		result = 31 * result + getSourceChanges().hashCode();
+		result = 31 * result + getThemes().hashCode();
 		return result;
 	}
 }

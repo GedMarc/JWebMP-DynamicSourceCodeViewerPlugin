@@ -109,24 +109,24 @@ public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen<J>>
 
 		DynamicSourceCodeScreen<?> that = (DynamicSourceCodeScreen<?>) o;
 
-		if (screensToGenerate != null ? !screensToGenerate.equals(that.screensToGenerate) : that.screensToGenerate != null)
+		if (!screensToGenerate.equals(that.screensToGenerate))
 		{
 			return false;
 		}
-		if (buttonPanel != null ? !buttonPanel.equals(that.buttonPanel) : that.buttonPanel != null)
+		if (!buttonPanel.equals(that.buttonPanel))
 		{
 			return false;
 		}
-		return sourceDisplay != null ? sourceDisplay.equals(that.sourceDisplay) : that.sourceDisplay == null;
+		return sourceDisplay.equals(that.sourceDisplay);
 	}
 
 	@Override
 	public int hashCode()
 	{
 		int result = super.hashCode();
-		result = 31 * result + (screensToGenerate != null ? screensToGenerate.hashCode() : 0);
-		result = 31 * result + (buttonPanel != null ? buttonPanel.hashCode() : 0);
-		result = 31 * result + (sourceDisplay != null ? sourceDisplay.hashCode() : 0);
+		result = 31 * result + screensToGenerate.hashCode();
+		result = 31 * result + buttonPanel.hashCode();
+		result = 31 * result + sourceDisplay.hashCode();
 		return result;
 	}
 }
