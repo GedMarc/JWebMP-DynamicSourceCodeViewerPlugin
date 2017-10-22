@@ -44,7 +44,7 @@ public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>> ext
 	 *
 	 * @param forComponent
 	 */
-	public DynamicSourceCodeFeature(DynamicSourceCode forComponent)
+	public DynamicSourceCodeFeature(DynamicSourceCodeScreen forComponent)
 	{
 		super("JWDynamicSourceCode");
 		setComponent(forComponent);
@@ -83,16 +83,8 @@ public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>> ext
 		DynamicSourceCode source = (DynamicSourceCode) getComponent();
 		addQuery("$('" + source.getID(true) + "').dynamicSourceCode(" + getOptions().toString() + ");" + getNewLine());
 
-		source.getSourceChanges().forEach((key, value) ->
-		                                  {
-			                                  addQuery("$('" + source.getID(true) + "').dynamicSourceCodeAddChanger('" + key.getID() + "','click');" + getNewLine());
-		                                  });
-
-		source.getThemeChanges().forEach((key, value) ->
-		                                 {
-			                                 addQuery("$('" + source.getID(true) + "').dynamicSourceCodeAddThemeChanger('" + key.getID() + "');" + getNewLine());
-		                                 });
-
+		source.getSourceChanges().forEach((key, value) -> addQuery("$('" + source.getID(true) + "').dynamicSourceCodeAddChanger('" + key.getID() + "','click');" + getNewLine()));
+		source.getThemeChanges().forEach((key, value) -> addQuery("$('" + source.getID(true) + "').dynamicSourceCodeAddThemeChanger('" + key.getID() + "');" + getNewLine()));
 	}
 
 	@Override

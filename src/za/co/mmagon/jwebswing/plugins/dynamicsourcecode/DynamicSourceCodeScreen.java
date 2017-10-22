@@ -45,12 +45,12 @@ import java.util.Map;
 public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen<J>>
 		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	private final Map<String, Class> screensToGenerate = new HashMap<>();
 	@TextCSS(TextAlign = TextAlignments.Center)
 	private final Div buttonPanel = new Div();
-	private final JQSourceCodePrettify sourceDisplay = new JQSourceCodePrettify();
+	private final JQSourceCodePrettify sourceDisplay;
 
 	/**
 	 * The source code sreen
@@ -65,22 +65,24 @@ public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen<J>>
 		buttonPanel.getCss().getDimensions().setHeight(60);
 		buttonPanel.getCss().getMargins().setMarginTop(new MeasurementCSSImpl(2));
 		buttonPanel.addClass("sourceCodeButton");
-		
+
+		sourceDisplay = new JQSourceCodePrettify();
 		sourceDisplay.setID("sourceCode");
 		sourceDisplay.setSourceCodePrettifyTheme(SourceCodePrettifyThemes.Sons_Of_Obsidian);
 		addFeature(new DynamicSourceCodeFeature(this));
-		
+
 		sourceDisplay.getCss().getDimensions().setHeight(MeasurementPercentages.hundredPercent);
 		sourceDisplay.getCss().getDisplay().setOverflow(Overflows.Scroll);
-		
+
 		za.co.mmagon.jwebswing.utilities.ComponentUtils.removeAllMargins(sourceDisplay);
-		
+
 		add(buttonPanel);
 		add(sourceDisplay);
 	}
 
 	/**
 	 * Adds an open source code display button
+	 *
 	 * @param name
 	 * @param comp
 	 */
