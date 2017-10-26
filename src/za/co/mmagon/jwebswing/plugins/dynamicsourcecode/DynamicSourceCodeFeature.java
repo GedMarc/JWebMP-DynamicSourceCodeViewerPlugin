@@ -18,6 +18,7 @@ package za.co.mmagon.jwebswing.plugins.dynamicsourcecode;
 
 import za.co.mmagon.jwebswing.Component;
 import za.co.mmagon.jwebswing.Feature;
+import za.co.mmagon.jwebswing.base.ComponentHierarchyBase;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.plugins.jquery.JQueryPageConfigurator;
 
@@ -44,7 +45,7 @@ public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>> ext
 	 *
 	 * @param forComponent
 	 */
-	public DynamicSourceCodeFeature(DynamicSourceCodeScreen forComponent)
+	public DynamicSourceCodeFeature(ComponentHierarchyBase forComponent)
 	{
 		super("JWDynamicSourceCode");
 		setComponent(forComponent);
