@@ -74,8 +74,6 @@ public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen<J>>
 		sourceDisplay.getCss().getDimensions().setHeight(MeasurementPercentages.hundredPercent);
 		sourceDisplay.getCss().getDisplay().setOverflow(Overflows.Scroll);
 
-		za.co.mmagon.jwebswing.utilities.ComponentUtils.removeAllMargins(sourceDisplay);
-
 		add(buttonPanel);
 		add(sourceDisplay);
 	}
