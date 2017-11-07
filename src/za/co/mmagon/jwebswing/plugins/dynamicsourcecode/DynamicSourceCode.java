@@ -19,6 +19,7 @@ package za.co.mmagon.jwebswing.plugins.dynamicsourcecode;
 import za.co.mmagon.jwebswing.Component;
 import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
 import za.co.mmagon.jwebswing.plugins.google.sourceprettify.SourceCodePrettifyThemes;
+import za.co.mmagon.jwebswing.utilities.StaticStrings;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -62,7 +63,7 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
 	 */
 	public void addSourceChanger(Component component, Class sourceClass)
 	{
-		getComponent().addAttribute(GlobalAttributes.Value, sourceClass.getCanonicalName().replace(".", "/"));
+		getComponent().addAttribute(GlobalAttributes.Value, sourceClass.getCanonicalName().replace(StaticStrings.STRING_DOT, "/"));
 		component.setID(sourceClass.getSimpleName() + "_source");
 		getSourceChanges().put(component, sourceClass);
 	}
