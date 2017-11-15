@@ -157,11 +157,7 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
 		{
 			return false;
 		}
-		if (!getSourceChanges().equals(that.getSourceChanges()))
-		{
-			return false;
-		}
-		return getThemes().equals(that.getThemes());
+		return getSourceChanges().equals(that.getSourceChanges()) && getThemes().equals(that.getThemes());
 	}
 
 	@Override

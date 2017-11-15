@@ -21,6 +21,7 @@ public class DynamicSourceCodeTest
 	}
 	
 	@Test
+	@SuppressWarnings("unchecked")
 	public void testDefaultOutput()
 	{
 		Page p = new Page();
