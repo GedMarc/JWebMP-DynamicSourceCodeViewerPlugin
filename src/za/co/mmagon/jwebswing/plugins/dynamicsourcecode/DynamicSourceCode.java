@@ -63,7 +63,7 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
 	 */
 	public void addSourceChanger(Component component, Class sourceClass)
 	{
-		getComponent().addAttribute(GlobalAttributes.Value, sourceClass.getCanonicalName().replace(StaticStrings.STRING_DOT, "/"));
+		component.addAttribute(GlobalAttributes.Value, sourceClass.getCanonicalName().replace(StaticStrings.STRING_DOT, "/"));
 		component.setID(sourceClass.getSimpleName() + "_source");
 		getSourceChanges().put(component, sourceClass);
 	}
@@ -76,7 +76,7 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
 	 */
 	public void addThemeChanger(Component component, SourceCodePrettifyThemes theme)
 	{
-		getComponent().addAttribute(GlobalAttributes.Value, theme.getCssReference());
+		component.addAttribute(GlobalAttributes.Value, theme.getCssReference());
 		component.setID(theme.name() + "_themeChanger");
 		getThemeChanges().put(component, theme);
 	}
