@@ -22,6 +22,8 @@ import za.co.mmagon.jwebswing.base.ComponentHierarchyBase;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 import za.co.mmagon.jwebswing.plugins.jquery.JQueryPageConfigurator;
 
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
+
 /**
  * Adds the dynamic source code JavaScript through
  *
@@ -73,7 +75,7 @@ public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>> ext
 	{
 		if (!isConfigured())
 		{
-			JQueryPageConfigurator.setRequired((Component) getComponent(), true);
+			JQueryPageConfigurator.setRequired(true);
 		}
 		super.preConfigure();
 	}
@@ -82,7 +84,7 @@ public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>> ext
 	public void assignFunctionsToComponent()
 	{
 		DynamicSourceCode source = (DynamicSourceCode) getComponent();
-		addQuery("$('" + source.getID(true) + "').dynamicSourceCode(" + getOptions().toString() + ");" + getNewLine());
+		addQuery("$('" + source.getID(true) + "').dynamicSourceCode(" + getOptions().toString() + STRING_CLOSING_BRACKET_SEMICOLON + getNewLine());
 
 		source.getSourceChanges().forEach((key, value) -> addQuery("$('" + source.getID(true) + "').dynamicSourceCodeAddChanger('" + key.getID() + "','click');" + getNewLine()));
 		source.getThemeChanges().forEach((key, value) -> addQuery("$('" + source.getID(true) + "').dynamicSourceCodeAddThemeChanger('" + key.getID() + "');" + getNewLine()));
