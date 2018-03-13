@@ -41,7 +41,8 @@ import java.util.Map;
  */
 @ComponentInformation(name = "Dynamic Source Code Screen",
 		description = "A screen for a source code viewer with buttons to change the source displayed",
-		url = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin", wikiUrl = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin/wiki")
+		url = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin",
+		wikiUrl = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin/wiki")
 public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen<J>>
 		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
 {
@@ -58,21 +59,32 @@ public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen<J>>
 	public DynamicSourceCodeScreen()
 	{
 		setID("sourceScreen");
-		getCss().getDimensions().setWidth(MeasurementPercentages.hundredPercent);
-		getCss().getDimensions().setHeight(MeasurementPercentages.hundredPercent);
-		getCss().getDisplay().setOverflow(Overflows.Hidden);
+		getCss().getDimensions()
+		        .setWidth(MeasurementPercentages.hundredPercent);
+		getCss().getDimensions()
+		        .setHeight(MeasurementPercentages.hundredPercent);
+		getCss().getDisplay()
+		        .setOverflow(Overflows.Hidden);
 		buttonPanel.setID("actualSource");
-		buttonPanel.getCss().getDimensions().setHeight(60);
-		buttonPanel.getCss().getMargins().setMarginTop(new MeasurementCSSImpl(2));
+		buttonPanel.getCss()
+		           .getDimensions()
+		           .setHeight(60);
+		buttonPanel.getCss()
+		           .getMargins()
+		           .setMarginTop(new MeasurementCSSImpl(2));
 		buttonPanel.addClass("sourceCodeButton");
 
 		sourceDisplay = new JQSourceCodePrettify();
 		sourceDisplay.setID("sourceCode");
-		sourceDisplay.setSourceCodePrettifyTheme(SourceCodePrettifyThemes.Sons_Of_Obsidian);
+		sourceDisplay.setTheme(SourceCodePrettifyThemes.Sons_Of_Obsidian);
 		addFeature(new DynamicSourceCodeFeature(this));
 
-		sourceDisplay.getCss().getDimensions().setHeight(MeasurementPercentages.hundredPercent);
-		sourceDisplay.getCss().getDisplay().setOverflow(Overflows.Scroll);
+		sourceDisplay.getCss()
+		             .getDimensions()
+		             .setHeight(MeasurementPercentages.hundredPercent);
+		sourceDisplay.getCss()
+		             .getDisplay()
+		             .setOverflow(Overflows.Scroll);
 
 		add(buttonPanel);
 		add(sourceDisplay);

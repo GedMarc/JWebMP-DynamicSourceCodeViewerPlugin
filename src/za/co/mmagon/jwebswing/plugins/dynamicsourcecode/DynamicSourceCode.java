@@ -32,7 +32,8 @@ import java.util.Map;
  * @version 1.0
  * @since 29 Aug 2015
  */
-public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sourceprettify.JQSourceCodePrettify
+public class DynamicSourceCode
+		extends za.co.mmagon.jwebswing.plugins.google.sourceprettify.JQSourceCodePrettify
 {
 
 	private static final long serialVersionUID = 1L;
@@ -63,22 +64,10 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
 	 */
 	public void addSourceChanger(Component component, Class sourceClass)
 	{
-		component.addAttribute(GlobalAttributes.Value, sourceClass.getCanonicalName().replace(StaticStrings.STRING_DOT, "/"));
+		component.addAttribute(GlobalAttributes.Value, sourceClass.getCanonicalName()
+		                                                          .replace(StaticStrings.STRING_DOT, "/"));
 		component.setID(sourceClass.getSimpleName() + "_source");
 		getSourceChanges().put(component, sourceClass);
-	}
-
-	/**
-	 * Registers a component as a theme changer
-	 *
-	 * @param component
-	 * @param theme
-	 */
-	public void addThemeChanger(Component component, SourceCodePrettifyThemes theme)
-	{
-		component.addAttribute(GlobalAttributes.Value, theme.getCssReference());
-		component.setID(theme.name() + "_themeChanger");
-		getThemeChanges().put(component, theme);
 	}
 
 	/**
@@ -103,6 +92,20 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
 	public void setSourceChanges(Map<Component, Class> sourceChanges)
 	{
 		this.sourceChanges = sourceChanges;
+	}
+
+	/**
+	 * Registers a component as a theme changer
+	 *
+	 * @param component
+	 * @param theme
+	 */
+	public void addThemeChanger(Component component, SourceCodePrettifyThemes theme)
+	{
+		component.addAttribute(GlobalAttributes.Value.toString(), theme.getCssReference()
+		                                                               .getLocalReference());
+		component.setID(theme.name() + "_themeChanger");
+		getThemeChanges().put(component, theme);
 	}
 
 	/**
@@ -138,35 +141,12 @@ public class DynamicSourceCode extends za.co.mmagon.jwebswing.plugins.google.sou
 	@Override
 	public boolean equals(Object o)
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof DynamicSourceCode))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		DynamicSourceCode that = (DynamicSourceCode) o;
-
-		if (!getFeature().equals(that.getFeature()))
-		{
-			return false;
-		}
-		return getSourceChanges().equals(that.getSourceChanges()) && getThemes().equals(that.getThemes());
+		return super.equals(o);
 	}
 
 	@Override
 	public int hashCode()
 	{
-		int result = super.hashCode();
-		result = 31 * result + getFeature().hashCode();
-		result = 31 * result + getSourceChanges().hashCode();
-		result = 31 * result + getThemes().hashCode();
-		return result;
+		return super.hashCode();
 	}
 }
