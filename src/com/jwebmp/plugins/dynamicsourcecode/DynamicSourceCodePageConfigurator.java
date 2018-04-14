@@ -14,17 +14,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.dynamicsourcecode;
+package com.jwebmp.plugins.dynamicsourcecode;
 
-import za.co.mmagon.jwebswing.Page;
-import za.co.mmagon.jwebswing.PageConfigurator;
-import za.co.mmagon.jwebswing.plugins.PluginInformation;
+import com.jwebmp.Page;
+import com.jwebmp.PageConfigurator;
+import com.jwebmp.plugins.PluginInformation;
 
 /**
  * @author GedMarc
  * @since 28 Feb 2017
  */
-@PluginInformation(pluginName = "Source Code View", pluginUniqueName = "jw-source-code-viewer",
+@PluginInformation(pluginName = "Source Code View",
+		pluginUniqueName = "jw-source-code-viewer",
 		pluginDescription = "A basic screen with buttons to load sources, a format drop down, and a source display screen. Completely themable with a switch",
 		pluginVersion = "1.0.0",
 		pluginDependancyUniqueIDs = "jquery,google-code-prettify",
@@ -39,9 +40,10 @@ import za.co.mmagon.jwebswing.plugins.PluginInformation;
 		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/DynamicSourceCodeViewerPlugin.jar/download",
 		pluginCommercial = false)
 @SuppressWarnings("unused")
-public class DynamicSourceCodePageConfigurator extends PageConfigurator
+public class DynamicSourceCodePageConfigurator
+		extends PageConfigurator
 {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -51,7 +53,7 @@ public class DynamicSourceCodePageConfigurator extends PageConfigurator
 	{
 		//Nothing needed
 	}
-	
+
 	@Override
 	public Page configure(Page page)
 	{

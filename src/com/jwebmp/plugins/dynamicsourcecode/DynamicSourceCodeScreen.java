@@ -14,21 +14,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.dynamicsourcecode;
+package com.jwebmp.plugins.dynamicsourcecode;
 
-import za.co.mmagon.jwebswing.base.html.Div;
-import za.co.mmagon.jwebswing.base.html.attributes.NoAttributes;
-import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
-import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
-import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
-import za.co.mmagon.jwebswing.htmlbuilder.css.displays.Overflows;
-import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSSImpl;
-import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementPercentages;
-import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextAlignments;
-import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextCSS;
-import za.co.mmagon.jwebswing.plugins.ComponentInformation;
-import za.co.mmagon.jwebswing.plugins.google.sourceprettify.JQSourceCodePrettify;
-import za.co.mmagon.jwebswing.plugins.google.sourceprettify.SourceCodePrettifyThemes;
+import com.jwebmp.base.html.Div;
+import com.jwebmp.base.html.attributes.NoAttributes;
+import com.jwebmp.base.html.interfaces.GlobalChildren;
+import com.jwebmp.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.htmlbuilder.css.displays.Overflows;
+import com.jwebmp.htmlbuilder.css.measurement.MeasurementCSSImpl;
+import com.jwebmp.htmlbuilder.css.measurement.MeasurementPercentages;
+import com.jwebmp.htmlbuilder.css.text.TextAlignments;
+import com.jwebmp.htmlbuilder.css.text.TextCSS;
+import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.plugins.google.sourceprettify.JQSourceCodePrettify;
+import com.jwebmp.plugins.google.sourceprettify.SourceCodePrettifyThemes;
 
 import java.util.HashMap;
 import java.util.Map;

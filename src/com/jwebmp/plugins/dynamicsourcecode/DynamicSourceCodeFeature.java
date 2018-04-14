@@ -14,15 +14,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.dynamicsourcecode;
+package com.jwebmp.plugins.dynamicsourcecode;
 
-import za.co.mmagon.jwebswing.Component;
-import za.co.mmagon.jwebswing.Feature;
-import za.co.mmagon.jwebswing.base.ComponentHierarchyBase;
-import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
-import za.co.mmagon.jwebswing.plugins.jquery.JQueryPageConfigurator;
+import com.jwebmp.Feature;
+import com.jwebmp.base.ComponentHierarchyBase;
+import com.jwebmp.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.plugins.jquery.JQueryPageConfigurator;
 
-import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
+import static com.jwebmp.utilities.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
 
 /**
  * Adds the dynamic source code JavaScript through
@@ -31,7 +30,8 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_CLOSING_BRAC
  * @version 1.0
  * @since 2013/01/16
  */
-public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>> extends Feature<DynamicSourceCodeOptions, J>
+public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>>
+		extends Feature<DynamicSourceCodeOptions, J>
 		implements GlobalFeatures
 {
 
@@ -54,22 +54,6 @@ public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>> ext
 		getJavascriptReferences().add(DynamicSourceCodeReferencePool.DynamicSourceCodeJavascript.getJavaScriptReference());
 	}
 
-	/**
-	 * Returns all the source code options options
-	 * <p>
-	 *
-	 * @return
-	 */
-	@Override
-	public DynamicSourceCodeOptions getOptions()
-	{
-		if (options == null)
-		{
-			options = new DynamicSourceCodeOptions();
-		}
-		return options;
-	}
-
 	@Override
 	public void preConfigure()
 	{
@@ -81,13 +65,11 @@ public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>> ext
 	}
 
 	@Override
-	public void assignFunctionsToComponent()
+	public int hashCode()
 	{
-		DynamicSourceCode source = (DynamicSourceCode) getComponent();
-		addQuery("$('" + source.getID(true) + "').dynamicSourceCode(" + getOptions().toString() + STRING_CLOSING_BRACKET_SEMICOLON + getNewLine());
-
-		source.getSourceChanges().forEach((key, value) -> addQuery("$('" + source.getID(true) + "').dynamicSourceCodeAddChanger('" + key.getID() + "','click');" + getNewLine()));
-		source.getThemeChanges().forEach((key, value) -> addQuery("$('" + source.getID(true) + "').dynamicSourceCodeAddThemeChanger('" + key.getID() + "');" + getNewLine()));
+		int result = super.hashCode();
+		result = 31 * result + (getOptions() != null ? getOptions().hashCode() : 0);
+		return result;
 	}
 
 	@Override
@@ -111,11 +93,31 @@ public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>> ext
 		return getOptions() != null ? getOptions().equals(that.getOptions()) : that.getOptions() == null;
 	}
 
+	/**
+	 * Returns all the source code options options
+	 * <p>
+	 *
+	 * @return
+	 */
 	@Override
-	public int hashCode()
+	public DynamicSourceCodeOptions getOptions()
 	{
-		int result = super.hashCode();
-		result = 31 * result + (getOptions() != null ? getOptions().hashCode() : 0);
-		return result;
+		if (options == null)
+		{
+			options = new DynamicSourceCodeOptions();
+		}
+		return options;
+	}
+
+	@Override
+	public void assignFunctionsToComponent()
+	{
+		DynamicSourceCode source = (DynamicSourceCode) getComponent();
+		addQuery("$('" + source.getID(true) + "').dynamicSourceCode(" + getOptions().toString() + STRING_CLOSING_BRACKET_SEMICOLON + getNewLine());
+
+		source.getSourceChanges()
+		      .forEach((key, value) -> addQuery("$('" + source.getID(true) + "').dynamicSourceCodeAddChanger('" + key.getID() + "','click');" + getNewLine()));
+		source.getThemeChanges()
+		      .forEach((key, value) -> addQuery("$('" + source.getID(true) + "').dynamicSourceCodeAddThemeChanger('" + key.getID() + "');" + getNewLine()));
 	}
 }

@@ -14,12 +14,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.dynamicsourcecode;
+package com.jwebmp.plugins.dynamicsourcecode;
 
-import za.co.mmagon.jwebswing.Component;
-import za.co.mmagon.jwebswing.base.html.attributes.GlobalAttributes;
-import za.co.mmagon.jwebswing.plugins.google.sourceprettify.SourceCodePrettifyThemes;
-import za.co.mmagon.jwebswing.utilities.StaticStrings;
+import com.jwebmp.Component;
+import com.jwebmp.base.html.attributes.GlobalAttributes;
+import com.jwebmp.plugins.google.sourceprettify.SourceCodePrettifyThemes;
+import com.jwebmp.utilities.StaticStrings;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +33,7 @@ import java.util.Map;
  * @since 29 Aug 2015
  */
 public class DynamicSourceCode
-		extends za.co.mmagon.jwebswing.plugins.google.sourceprettify.JQSourceCodePrettify
+		extends com.jwebmp.plugins.google.sourceprettify.JQSourceCodePrettify
 {
 
 	private static final long serialVersionUID = 1L;
@@ -139,14 +139,14 @@ public class DynamicSourceCode
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }
