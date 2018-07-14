@@ -26,9 +26,11 @@ import com.jwebmp.base.servlets.interfaces.ReferencePool;
  * @author GedMarc
  * @since 20 Apr 2016
  */
-public enum DynamicSourceCodeReferencePool implements ReferencePool
+public enum DynamicSourceCodeReferencePool
+		implements ReferencePool
 {
-	DynamicSourceCodeJavascript(new JavascriptReference("JWDynamicSourceCode", 1.0, "dynamicSourceCodeFetcher/DynamicSourceCodeLoad.js", "dynamicSourceCodeFetcher/DynamicSourceCodeLoad.js"), null);
+	DynamicSourceCodeJavascript(
+			new JavascriptReference("JWDynamicSourceCode", 1.0, "dynamicSourceCodeFetcher/DynamicSourceCodeLoad.js", "dynamicSourceCodeFetcher/DynamicSourceCodeLoad.js"), null);
 
 	private JavascriptReference javaScriptReference;
 	private CSSReference cssReference;

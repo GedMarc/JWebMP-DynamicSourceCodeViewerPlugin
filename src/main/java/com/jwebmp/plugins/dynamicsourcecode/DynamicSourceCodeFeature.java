@@ -21,7 +21,7 @@ import com.jwebmp.base.ComponentHierarchyBase;
 import com.jwebmp.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.plugins.jquery.JQueryPageConfigurator;
 
-import static com.jwebmp.utilities.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
+import static com.jwebmp.utilities.StaticStrings.*;
 
 /**
  * Adds the dynamic source code JavaScript through

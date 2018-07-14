@@ -28,7 +28,8 @@ import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
  * 		<p>
  * @since Nov 11, 2016
  */
-public class DynamicSourceCodeOptions<J extends DynamicSourceCodeOptions<J>> extends JavaScriptPart<J>
+public class DynamicSourceCodeOptions<J extends DynamicSourceCodeOptions<J>>
+		extends JavaScriptPart<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -136,6 +137,5 @@ public class DynamicSourceCodeOptions<J extends DynamicSourceCodeOptions<J>> ext
 	{
 		this.fileExtension = fileExtension;
 	}
-
 
 }
