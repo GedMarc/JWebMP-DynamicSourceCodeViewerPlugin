@@ -48,6 +48,20 @@
             <version>${project.version}</version>
             <classifier>${jwebmp.runtime.classifier}</classifier>
         </dependency>
+        <dependency>
+            <groupId>com.jwebmp</groupId>
+            <artifactId>jwebmp-log-master</artifactId>
+            <version>${project.version}</version>
+            <classifier>${jwebmp.runtime.classifier}</classifier>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.jwebmp</groupId>
+            <artifactId>guiced-servlets</artifactId>
+            <version>${project.version}</version>
+            <classifier>${jwebmp.runtime.classifier}</classifier>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     <scm>
         <url>https://github.com/GedMarc?tab=repositories</url>
