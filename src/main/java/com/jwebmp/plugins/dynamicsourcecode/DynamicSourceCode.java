@@ -16,10 +16,10 @@
  */
 package com.jwebmp.plugins.dynamicsourcecode;
 
-import com.jwebmp.Component;
-import com.jwebmp.base.html.attributes.GlobalAttributes;
+import com.jwebmp.core.Component;
+import com.jwebmp.core.base.html.attributes.GlobalAttributes;
+import com.jwebmp.core.utilities.StaticStrings;
 import com.jwebmp.plugins.google.sourceprettify.SourceCodePrettifyThemes;
-import com.jwebmp.utilities.StaticStrings;
 
 import java.util.HashMap;
 import java.util.Map;

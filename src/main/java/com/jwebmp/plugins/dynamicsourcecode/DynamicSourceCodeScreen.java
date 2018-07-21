@@ -16,17 +16,17 @@
  */
 package com.jwebmp.plugins.dynamicsourcecode;
 
-import com.jwebmp.base.html.Div;
-import com.jwebmp.base.html.attributes.NoAttributes;
-import com.jwebmp.base.html.interfaces.GlobalChildren;
-import com.jwebmp.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.base.html.interfaces.events.GlobalEvents;
-import com.jwebmp.htmlbuilder.css.displays.Overflows;
-import com.jwebmp.htmlbuilder.css.measurement.MeasurementCSSImpl;
-import com.jwebmp.htmlbuilder.css.measurement.MeasurementPercentages;
-import com.jwebmp.htmlbuilder.css.text.TextAlignments;
-import com.jwebmp.htmlbuilder.css.text.TextCSS;
-import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.attributes.NoAttributes;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.htmlbuilder.css.displays.Overflows;
+import com.jwebmp.core.htmlbuilder.css.measurement.MeasurementCSSImpl;
+import com.jwebmp.core.htmlbuilder.css.measurement.MeasurementPercentages;
+import com.jwebmp.core.htmlbuilder.css.text.TextAlignments;
+import com.jwebmp.core.htmlbuilder.css.text.TextCSS;
+import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.google.sourceprettify.JQSourceCodePrettify;
 import com.jwebmp.plugins.google.sourceprettify.SourceCodePrettifyThemes;
 

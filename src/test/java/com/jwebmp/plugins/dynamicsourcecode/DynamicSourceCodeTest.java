@@ -22,8 +22,8 @@
  */
 package com.jwebmp.plugins.dynamicsourcecode;
 
-import com.jwebmp.Page;
-import com.jwebmp.base.html.Div;
+import com.jwebmp.core.Page;
+import com.jwebmp.core.base.html.Div;
 import com.jwebmp.plugins.google.sourceprettify.SourceCodePrettifyThemes;
 import org.junit.jupiter.api.Test;
 

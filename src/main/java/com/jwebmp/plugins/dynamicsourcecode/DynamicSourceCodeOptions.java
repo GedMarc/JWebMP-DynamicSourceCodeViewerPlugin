@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.dynamicsourcecode;
 
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
 /**
  * Options for the dynamic source code guy

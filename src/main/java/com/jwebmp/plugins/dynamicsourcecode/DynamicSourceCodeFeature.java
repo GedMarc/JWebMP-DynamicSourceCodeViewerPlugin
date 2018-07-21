@@ -16,12 +16,12 @@
  */
 package com.jwebmp.plugins.dynamicsourcecode;
 
-import com.jwebmp.Feature;
-import com.jwebmp.base.ComponentHierarchyBase;
-import com.jwebmp.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.plugins.jquery.JQueryPageConfigurator;
+import com.jwebmp.core.Feature;
+import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * Adds the dynamic source code JavaScript through
