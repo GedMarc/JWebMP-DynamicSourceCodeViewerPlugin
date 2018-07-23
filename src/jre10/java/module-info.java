@@ -1,3 +1,6 @@
+import com.jwebmp.core.services.IPageConfigurator;
+import com.jwebmp.plugins.dynamicsourcecode.DynamicSourceCodePageConfigurator;
+
 module com.jwebmp.plugins.dynamicsourcecode {
 	exports com.jwebmp.plugins.dynamicsourcecode;
 
@@ -9,4 +12,7 @@ module com.jwebmp.plugins.dynamicsourcecode {
 	requires com.jwebmp.guicedservlets;
 	requires java.logging;
 	requires com.jwebmp.plugins.google.sourceprettify;
+
+	provides IPageConfigurator with DynamicSourceCodePageConfigurator;
+
 }
