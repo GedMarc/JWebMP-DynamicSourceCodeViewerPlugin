@@ -14,5 +14,5 @@ module com.jwebmp.plugins.dynamicsourcecode {
 	requires com.jwebmp.plugins.google.sourceprettify;
 
 	provides IPageConfigurator with DynamicSourceCodePageConfigurator;
-
+	opens com.jwebmp.plugins.dynamicsourcecode to com.fasterxml.jackson.databind,com.jwebmp.core;
 }
