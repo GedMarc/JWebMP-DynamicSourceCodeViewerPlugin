@@ -18,9 +18,9 @@ package com.jwebmp.plugins.dynamicsourcecode;
 
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.base.html.attributes.NoAttributes;
-import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.htmlbuilder.css.displays.Overflows;
 import com.jwebmp.core.htmlbuilder.css.measurement.MeasurementCSSImpl;
 import com.jwebmp.core.htmlbuilder.css.measurement.MeasurementPercentages;
@@ -44,7 +44,7 @@ import java.util.Map;
 		url = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin",
 		wikiUrl = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin/wiki")
 public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen<J>>
-		extends Div<GlobalChildren, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		extends Div<IComponentHierarchyBase, NoAttributes, GlobalFeatures, GlobalEvents, J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -102,41 +102,14 @@ public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
+	public int hashCode()
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof DynamicSourceCodeScreen))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		DynamicSourceCodeScreen<?> that = (DynamicSourceCodeScreen<?>) o;
-
-		if (!screensToGenerate.equals(that.screensToGenerate))
-		{
-			return false;
-		}
-		if (!buttonPanel.equals(that.buttonPanel))
-		{
-			return false;
-		}
-		return sourceDisplay.equals(that.sourceDisplay);
+		return super.hashCode();
 	}
 
 	@Override
-	public int hashCode()
+	public boolean equals(Object o)
 	{
-		int result = super.hashCode();
-		result = 31 * result + screensToGenerate.hashCode();
-		result = 31 * result + buttonPanel.hashCode();
-		result = 31 * result + sourceDisplay.hashCode();
-		return result;
+		return super.equals(o);
 	}
 }

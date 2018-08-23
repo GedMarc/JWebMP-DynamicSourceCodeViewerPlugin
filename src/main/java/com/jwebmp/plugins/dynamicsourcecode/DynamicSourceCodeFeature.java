@@ -31,8 +31,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
  * @since 2013/01/16
  */
 public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>>
-		extends Feature<DynamicSourceCodeOptions, J>
-		implements GlobalFeatures
+		extends Feature<GlobalFeatures, DynamicSourceCodeOptions, J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -67,30 +66,13 @@ public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>>
 	@Override
 	public int hashCode()
 	{
-		int result = super.hashCode();
-		result = 31 * result + (getOptions() != null ? getOptions().hashCode() : 0);
-		return result;
+		return super.hashCode();
 	}
 
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof DynamicSourceCodeFeature))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		DynamicSourceCodeFeature<?> that = (DynamicSourceCodeFeature<?>) o;
-
-		return getOptions() != null ? getOptions().equals(that.getOptions()) : that.getOptions() == null;
+		return super.equals(obj);
 	}
 
 	/**
