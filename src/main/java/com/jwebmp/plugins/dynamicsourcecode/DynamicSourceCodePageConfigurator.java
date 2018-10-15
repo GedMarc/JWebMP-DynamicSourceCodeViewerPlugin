@@ -33,9 +33,9 @@ import javax.validation.constraints.NotNull;
 		pluginDependancyUniqueIDs = "jquery,google-code-prettify",
 		pluginCategories = "jquery, ui, source display, web, framework",
 		pluginSubtitle = "A custom built widget that provides a source code viewer, which will load and display source from pretty much anywhere",
-		pluginGitUrl = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin",
-		pluginSourceUrl = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin",
-		pluginWikiUrl = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin/wiki",
+		pluginGitUrl = "https://github.com/GedMarc/JWebMP-DynamicSourceCodeViewerPlugin",
+		pluginSourceUrl = "https://github.com/GedMarc/JWebMP-DynamicSourceCodeViewerPlugin",
+		pluginWikiUrl = "https://github.com/GedMarc/JWebMP-DynamicSourceCodeViewerPlugin/wiki",
 		pluginOriginalHomepage = "http://www.jwebswing.com/",
 		pluginIconUrl = "dynamicSourceCodeFetcher/dynamicviewerlogo.png",
 		pluginIconImageUrl = "dynamicSourceCodeFetcher/dynamicviewerlogo.png",
@@ -43,9 +43,8 @@ import javax.validation.constraints.NotNull;
 		pluginCommercial = false)
 @SuppressWarnings("unused")
 public class DynamicSourceCodePageConfigurator
-		implements IPageConfigurator
+		implements IPageConfigurator<DynamicSourceCodePageConfigurator>
 {
-	private static final long serialVersionUID = 1L;
 	/**
 	 * If this configurator is enabled
 	 */

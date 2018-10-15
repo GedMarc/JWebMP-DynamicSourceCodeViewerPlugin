@@ -41,8 +41,8 @@ import java.util.Map;
  */
 @ComponentInformation(name = "Dynamic Source Code Screen",
 		description = "A screen for a source code viewer with buttons to change the source displayed",
-		url = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing-DynamicSourceCodeViewerPlugin/wiki")
+		url = "https://github.com/GedMarc/JWebMP-DynamicSourceCodeViewerPlugin",
+		wikiUrl = "https://github.com/GedMarc/JWebMP-DynamicSourceCodeViewerPlugin/wiki")
 public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen<J>>
 		extends Div<IComponentHierarchyBase, NoAttributes, GlobalFeatures, GlobalEvents, J>
 {
