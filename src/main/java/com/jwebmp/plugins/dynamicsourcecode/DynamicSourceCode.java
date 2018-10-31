@@ -36,7 +36,7 @@ public class DynamicSourceCode
 		extends com.jwebmp.plugins.google.sourceprettify.JQSourceCodePrettify
 {
 
-	private static final long serialVersionUID = 1L;
+
 	private DynamicSourceCodeFeature feature;
 
 	private Map<Component, Class> sourceChanges;

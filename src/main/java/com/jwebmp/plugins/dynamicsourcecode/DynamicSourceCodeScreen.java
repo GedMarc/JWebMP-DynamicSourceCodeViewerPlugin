@@ -47,7 +47,7 @@ public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen<J>>
 		extends Div<IComponentHierarchyBase, NoAttributes, GlobalFeatures, GlobalEvents, J>
 {
 
-	private static final long serialVersionUID = 1L;
+
 	private final Map<String, Class> screensToGenerate = new HashMap<>();
 	@TextCSS(TextAlign = TextAlignments.Center)
 	private final Div buttonPanel = new Div();

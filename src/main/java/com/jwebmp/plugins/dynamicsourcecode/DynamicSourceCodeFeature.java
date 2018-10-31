@@ -34,7 +34,7 @@ public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>>
 		extends Feature<GlobalFeatures, DynamicSourceCodeOptions, J>
 {
 
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * The list of options for the viewer
 	 */

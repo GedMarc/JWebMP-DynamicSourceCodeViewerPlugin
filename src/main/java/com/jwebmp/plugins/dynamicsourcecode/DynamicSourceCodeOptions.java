@@ -32,7 +32,7 @@ public class DynamicSourceCodeOptions<J extends DynamicSourceCodeOptions<J>>
 		extends JavaScriptPart<J>
 {
 
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * The source url for the code
 	 */
