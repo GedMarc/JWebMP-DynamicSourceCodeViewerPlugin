@@ -32,8 +32,8 @@ import java.util.Map;
  * @version 1.0
  * @since 29 Aug 2015
  */
-public class DynamicSourceCode
-		extends com.jwebmp.plugins.google.sourceprettify.JQSourceCodePrettify
+public class DynamicSourceCode<J extends DynamicSourceCode<J>>
+		extends com.jwebmp.plugins.google.sourceprettify.JQSourceCodePrettify<J>
 {
 
 

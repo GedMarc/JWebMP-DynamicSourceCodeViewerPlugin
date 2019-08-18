@@ -44,9 +44,9 @@ public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>>
 	 * Constructs a new Feature for the Dynamic Source Code Component.
 	 * <p>
 	 *
-	 * @param forComponent
+	 * @param forComponent Only a dynamic source code
 	 */
-	public DynamicSourceCodeFeature(ComponentHierarchyBase forComponent)
+	public DynamicSourceCodeFeature(DynamicSourceCode<?> forComponent)
 	{
 		super("JWDynamicSourceCode");
 		setComponent(forComponent);
@@ -94,7 +94,7 @@ public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>>
 	@Override
 	public void assignFunctionsToComponent()
 	{
-		DynamicSourceCode source = (DynamicSourceCode) getComponent();
+		DynamicSourceCode<?> source = (DynamicSourceCode) getComponent();
 		addQuery("$('" + source.getID(true) + "').dynamicSourceCode(" + getOptions().toString() + STRING_CLOSING_BRACKET_SEMICOLON + getNewLine());
 
 		source.getSourceChanges()

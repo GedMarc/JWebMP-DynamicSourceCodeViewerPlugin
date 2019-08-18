@@ -17,7 +17,9 @@
 package com.jwebmp.plugins.dynamicsourcecode;
 
 import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.attributes.NoAttributes;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
@@ -44,14 +46,13 @@ import java.util.Map;
 		url = "https://github.com/GedMarc/JWebMP-DynamicSourceCodeViewerPlugin",
 		wikiUrl = "https://github.com/GedMarc/JWebMP-DynamicSourceCodeViewerPlugin/wiki")
 public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen<J>>
-		extends Div<IComponentHierarchyBase, NoAttributes, GlobalFeatures, GlobalEvents, J>
+		extends DivSimple<J>
 {
-
 
 	private final Map<String, Class> screensToGenerate = new HashMap<>();
 	@TextCSS(TextAlign = TextAlignments.Center)
 	private final Div buttonPanel = new Div();
-	private final JQSourceCodePrettify sourceDisplay;
+	private final DynamicSourceCode<?> sourceDisplay;
 
 	/**
 	 * The source code sreen
@@ -74,10 +75,10 @@ public class DynamicSourceCodeScreen<J extends DynamicSourceCodeScreen<J>>
 		           .setMarginTop(new MeasurementCSSImpl(2));
 		buttonPanel.addClass("sourceCodeButton");
 
-		sourceDisplay = new JQSourceCodePrettify();
+		sourceDisplay = new DynamicSourceCode<>();
 		sourceDisplay.setID("sourceCode");
 		sourceDisplay.setTheme(SourceCodePrettifyThemes.Sons_Of_Obsidian);
-		addFeature(new DynamicSourceCodeFeature(this));
+		addFeature(new DynamicSourceCodeFeature<>(sourceDisplay));
 
 		sourceDisplay.getCss()
 		             .getDimensions()
