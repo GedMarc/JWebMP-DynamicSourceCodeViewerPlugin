@@ -1,6 +1,5 @@
 package com.jwebmp.plugins.dynamicsourcecode.implementations;
 
-import com.guicedee.guicedinjection.interfaces.IGuiceScanJarExclusions;
 import com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions;
 
 import javax.validation.constraints.NotNull;
@@ -8,17 +7,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class DynamicSourceCodeExclusionsModule
-		implements IGuiceScanModuleExclusions<DynamicSourceCodeExclusionsModule>,
-				           IGuiceScanJarExclusions<DynamicSourceCodeExclusionsModule>
+		implements IGuiceScanModuleExclusions<DynamicSourceCodeExclusionsModule>
 {
-
-	@Override
-	public @NotNull Set<String> excludeJars()
-	{
-		Set<String> strings = new HashSet<>();
-		strings.add("jwebmp-dynamic-source-code-viewer-*");
-		return strings;
-	}
 
 	@Override
 	public @NotNull Set<String> excludeModules()

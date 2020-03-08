@@ -13,7 +13,6 @@ module com.jwebmp.plugins.dynamicsourcecode {
 
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.dynamicsourcecode.DynamicSourceCodePageConfigurator;
 
-	provides com.guicedee.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.dynamicsourcecode.implementations.DynamicSourceCodeExclusionsModule;
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.dynamicsourcecode.implementations.DynamicSourceCodeExclusionsModule;
 
 
