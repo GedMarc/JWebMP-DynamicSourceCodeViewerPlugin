@@ -24,6 +24,8 @@ import com.jwebmp.plugins.google.sourceprettify.SourceCodePrettifyThemes;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.guicedee.guicedinjection.json.StaticStrings.STRING_DOT;
+
 /**
  * Custom code swapper for JQ Source Code Pretty
  * <p>
@@ -65,7 +67,7 @@ public class DynamicSourceCode<J extends DynamicSourceCode<J>>
 	public void addSourceChanger(Component component, Class sourceClass)
 	{
 		component.addAttribute(GlobalAttributes.Value, sourceClass.getCanonicalName()
-		                                                          .replace(StaticStrings.STRING_DOT, "/"));
+		                                                          .replace(STRING_DOT, "/"));
 		component.setID(sourceClass.getSimpleName() + "_source");
 		getSourceChanges().put(component, sourceClass);
 	}

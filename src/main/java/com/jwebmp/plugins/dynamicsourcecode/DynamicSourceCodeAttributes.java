@@ -19,6 +19,7 @@ package com.jwebmp.plugins.dynamicsourcecode;
 import com.jwebmp.core.base.html.interfaces.AttributeDefinitions;
 import com.jwebmp.core.utilities.StaticStrings;
 
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
@@ -50,7 +51,7 @@ public enum DynamicSourceCodeAttributes
 	public String toString()
 	{
 		return name().toLowerCase()
-		             .replace(StaticStrings.CHAR_UNDERSCORE, CHAR_DASH)
-		             .replace("$", "");
+		             .replace(CHAR_UNDERSCORE, CHAR_DASH)
+		             .replace(STRING_DOLLAR, STRING_EMPTY);
 	}
 }

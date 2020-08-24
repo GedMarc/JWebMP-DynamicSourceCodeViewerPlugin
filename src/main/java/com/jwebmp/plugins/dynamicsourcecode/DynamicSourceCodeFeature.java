@@ -21,6 +21,7 @@ import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 
+import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
