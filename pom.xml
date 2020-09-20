@@ -21,12 +21,10 @@
         <dependency>
             <groupId>com.jwebmp.core</groupId>
             <artifactId>jwebmp-core</artifactId>
-            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>com.jwebmp.plugins.javascript</groupId>
             <artifactId>jwebmp-source-prettify</artifactId>
-            <type>jar</type>
         </dependency>
     </dependencies>
     <scm>
