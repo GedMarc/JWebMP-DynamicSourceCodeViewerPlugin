@@ -39,7 +39,7 @@ public class DynamicSourceCode<J extends DynamicSourceCode<J>>
 {
 
 
-	private DynamicSourceCodeFeature feature;
+	private DynamicSourceCodeFeature<?> feature;
 
 	private Map<Component, Class> sourceChanges;
 	private Map<Component, SourceCodePrettifyThemes> themes;

@@ -18,6 +18,7 @@ package com.jwebmp.plugins.dynamicsourcecode;
 
 import com.jwebmp.core.Page;
 import com.jwebmp.core.plugins.PluginInformation;
+import com.jwebmp.core.plugins.PluginStatus;
 import com.jwebmp.core.services.IPageConfigurator;
 
 import jakarta.validation.constraints.NotNull;
@@ -36,11 +37,15 @@ import jakarta.validation.constraints.NotNull;
 		pluginGitUrl = "https://github.com/GedMarc/JWebMP-DynamicSourceCodeViewerPlugin",
 		pluginSourceUrl = "https://github.com/GedMarc/JWebMP-DynamicSourceCodeViewerPlugin",
 		pluginWikiUrl = "https://github.com/GedMarc/JWebMP-DynamicSourceCodeViewerPlugin/wiki",
-		pluginOriginalHomepage = "http://www.jwebswing.com/",
+		pluginOriginalHomepage = "http://www.jwebmp.com/",
 		pluginIconUrl = "dynamicSourceCodeFetcher/dynamicviewerlogo.png",
 		pluginIconImageUrl = "dynamicSourceCodeFetcher/dynamicviewerlogo.png",
-		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/DynamicSourceCodeViewerPlugin.jar/download",
-		pluginCommercial = false)
+		pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.javascript/jwebmp-dynamic-source-code-viewer",
+		pluginGroupId = "com.jwebmp.plugins.javascript",
+		pluginArtifactId = "jwebmp-dynamic-source-code-viewer",
+		pluginModuleName = "com.jwebmp.plugins.dynamicsourcecode",
+		pluginStatus = PluginStatus.Released
+)
 @SuppressWarnings("unused")
 public class DynamicSourceCodePageConfigurator
 		implements IPageConfigurator<DynamicSourceCodePageConfigurator>

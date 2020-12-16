@@ -1,3 +1,5 @@
+import com.jwebmp.plugins.dynamicsourcecode.implementations.DynamicSourceCodeInclusionModule;
+
 module com.jwebmp.plugins.dynamicsourcecode {
 	exports com.jwebmp.plugins.dynamicsourcecode;
 
@@ -13,6 +15,7 @@ module com.jwebmp.plugins.dynamicsourcecode {
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.dynamicsourcecode.DynamicSourceCodePageConfigurator;
 
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.dynamicsourcecode.implementations.DynamicSourceCodeExclusionsModule;
-
+	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleInclusions with DynamicSourceCodeInclusionModule;
+	
 	opens com.jwebmp.plugins.dynamicsourcecode to com.fasterxml.jackson.databind, com.jwebmp.core;
 }

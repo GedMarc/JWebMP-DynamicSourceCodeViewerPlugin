@@ -32,14 +32,12 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
  * @since 2013/01/16
  */
 public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>>
-		extends Feature<GlobalFeatures, DynamicSourceCodeOptions, J>
+		extends Feature<GlobalFeatures, DynamicSourceCodeOptions<?>, J>
 {
-
-
 	/**
 	 * The list of options for the viewer
 	 */
-	private DynamicSourceCodeOptions options;
+	private DynamicSourceCodeOptions<?> options;
 
 	/**
 	 * Constructs a new Feature for the Dynamic Source Code Component.
@@ -83,11 +81,11 @@ public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>>
 	 * @return
 	 */
 	@Override
-	public DynamicSourceCodeOptions getOptions()
+	public DynamicSourceCodeOptions<?> getOptions()
 	{
 		if (options == null)
 		{
-			options = new DynamicSourceCodeOptions();
+			options = new DynamicSourceCodeOptions<>();
 		}
 		return options;
 	}
@@ -95,7 +93,7 @@ public class DynamicSourceCodeFeature<J extends DynamicSourceCodeFeature<J>>
 	@Override
 	public void assignFunctionsToComponent()
 	{
-		DynamicSourceCode<?> source = (DynamicSourceCode) getComponent();
+		DynamicSourceCode<?> source = (DynamicSourceCode<?>) getComponent();
 		addQuery("$('" + source.getID(true) + "').dynamicSourceCode(" + getOptions().toString() + STRING_CLOSING_BRACKET_SEMICOLON + getNewLine());
 
 		source.getSourceChanges()
