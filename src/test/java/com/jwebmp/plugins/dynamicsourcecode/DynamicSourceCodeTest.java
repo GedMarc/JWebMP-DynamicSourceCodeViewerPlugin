@@ -41,7 +41,7 @@ public class DynamicSourceCodeTest
 	@SuppressWarnings("unchecked")
 	public void testDefaultOutput()
 	{
-		Page p = new Page();
+		Page<?> p = new Page();
 		p.getOptions()
 		 .setDynamicRender(false);
 		DynamicSourceCode dsc = new DynamicSourceCode();
