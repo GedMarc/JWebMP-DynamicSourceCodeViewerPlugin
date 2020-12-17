@@ -12,7 +12,7 @@ public class DynamicSourceCodeInclusionModule implements IGuiceScanModuleInclusi
 	public @NotNull Set<String> includeModules()
 	{
 		Set<String> set = new HashSet<>();
-		set.add("com.jwebmp.plugins.jqueryui");
+		set.add("com.jwebmp.plugins.dynamicsourcecode");
 		return set;
 	}
 }
