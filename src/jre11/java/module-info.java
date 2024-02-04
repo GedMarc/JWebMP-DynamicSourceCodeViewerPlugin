@@ -4,7 +4,7 @@ module com.jwebmp.plugins.dynamicsourcecode {
 	exports com.jwebmp.plugins.dynamicsourcecode;
 
 	requires com.jwebmp.core;
-	requires com.guicedee.logmaster;
+	
 
 	requires jakarta.validation;
 	requires com.guicedee.guicedservlets;

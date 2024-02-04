@@ -24,7 +24,7 @@ import com.jwebmp.plugins.google.sourceprettify.SourceCodePrettifyThemes;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.STRING_DOT;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.STRING_DOT;
 
 /**
  * Custom code swapper for JQ Source Code Pretty
